@@ -29,7 +29,7 @@ fetch('./data.json').then(response => {
   // console.log(" ")
 
   console.log("BEST 442")
-  //bestfourfourtwo(4, 4, 2, 'team');
+  fourfourtwo(4, 4, 2, 'team');
   console.log(" ")
 
   // console.log("BEST 352")
@@ -111,8 +111,24 @@ fetch('./data.json').then(response => {
       var row = table.insertRow(1)
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
       cell1.innerHTML = bestteam[i].first_name + " " + bestteam[i].second_name;
-      cell2.innerHTML = bestteam[i].total_points;
+
+        switch (bestteam[i].element_type){
+          case 1:
+            cell2.innerHTML = "GK";
+          break;
+          case 2:
+            cell2.innerHTML = "DEF";
+          break;
+          case 3:
+            cell2.innerHTML = "MID";
+          break;
+          case 4:
+            cell2.innerHTML = "FOR";
+          break;
+        }
+      cell3.innerHTML = bestteam[i].total_points;
     }
 
     console.log("LEFT IN BUDGET: " + team_value)
